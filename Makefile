@@ -6,22 +6,18 @@
 #    By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/13 20:06:31 by amenadue          #+#    #+#              #
-#    Updated: 2022/08/08 10:43:57 by amenadue         ###   ########.fr        #
+#    Updated: 2022/08/08 11:40:19 by amenadue         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	MiniTalk
+NAME	=	minitalk
 
 FILES	=	server.c \
 			client.c
 
-LIBS	=	libft
-
-INC		=	$(foreach lib,$(LIBS), -I$(lib) $(lib).a)
-
 CC		=	gcc
 
-CCFLAGS	=	-Wall -Werror -Wextra$(INC)
+CCFLAGS	= 	-Wall -Werror -Wextra -Ilibft -Llibft -lft
 
 init: re
 
@@ -29,19 +25,23 @@ all:libs server client
 	@printf "Both 'server' and 'client' are ready.\n"
 
 libs:
-	@$(foreach lib,$(LIBS),make all -s -C $(lib);)
+	@$(MAKE) all -s -C libft
 
 client:
-	$(CC) $(CCFLAGS) client.c -o client
+	@printf "Creating 'client'.\n"
+	@$(CC) $(CCFLAGS) client.c -o client
 
 server:
-	$(CC) $(CCFLAGS) server.c -o server
+	@printf "Creating 'server'.\n"
+	@$(CC) $(CCFLAGS) server.c -o server
 
 clean:
-	@$(foreach lib,$(LIBS),make clean -s -C $(lib);)
+	@printf "Cleaning libft.\n"
+	@$(MAKE) clean -s -C libft
 
 fclean:
-	@$(foreach lib,$(LIBS),make fclean -s -C $(lib);)
+	@printf "Full cleaning libft.\n"
+	@$(MAKE) fclean -s -C libft
 	@rm -f client
 	@rm -f server
 

@@ -6,7 +6,7 @@
 #    By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/13 17:55:39 by amenadue          #+#    #+#              #
-#    Updated: 2022/07/10 21:42:32 by amenadue         ###   ########.fr        #
+#    Updated: 2022/08/08 11:27:24 by amenadue         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,9 +48,9 @@ SRC 	=	ft_strlen.c \
 			ft_putstr_fd.c \
 			ft_putendl_fd.c \
 			ft_putnbr_fd.c \
-			ft_printf.c \
 			ft_internal_print_a.c \
 			ft_internal_print_b.c \
+			ft_printf.c \
 			ft_gnl.c
 
 # EnvVars (Do not touch unless you understand and know what is happening, which you probably do)
@@ -59,12 +59,12 @@ CC		=	gcc
 
 CCFLAGS	=	-Wall -Wextra -Werror
 
-OBJS	= $(SRC:%.c=%.o)
+OBJS	=	$(SRC:%.c=%.o)
 
 $(NAME):
 	-@$(CC) $(CCFLAGS) -c $(SRC) -I./
-	-@ar -rc ../$(NAME).a $(OBJS)
-	-@printf "made libft.a\n"
+	-@ar -rc $(NAME).a $(OBJS)
+	-@printf "Made libft.a\n"
 
 all: $(NAME)
 
@@ -72,7 +72,7 @@ clean:
 	-@rm -f $(OBJS)
 
 fclean: clean
-	-@rm -f ../$(NAME).a
+	-@rm -f $(NAME).a
 
 re: fclean all
 

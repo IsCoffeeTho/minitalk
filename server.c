@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 09:25:51 by amenadue          #+#    #+#             */
-/*   Updated: 2022/08/08 09:47:00 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/08/08 11:43:26 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	main(void)
 	while (1)
 	{
 		signal(SIGUSR2, app_prtclbuf);
+		signal(SIGUSR1, app_prtclbuf);
 	}
 	return (0);
 }
