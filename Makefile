@@ -6,7 +6,7 @@
 #    By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/13 20:06:31 by amenadue          #+#    #+#              #
-#    Updated: 2022/08/08 09:33:23 by amenadue         ###   ########.fr        #
+#    Updated: 2022/08/08 10:43:57 by amenadue         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,11 +17,11 @@ FILES	=	server.c \
 
 LIBS	=	libft
 
-LIBINC	=	$(foreach lib,$(LIBS), $(lib).a -I$(lib))
+INC		=	$(foreach lib,$(LIBS), -I$(lib) $(lib).a)
 
 CC		=	gcc
 
-CCFLAGS	=	-Wall -Werror -Wextra $(LIBINC)
+CCFLAGS	=	-Wall -Werror -Wextra$(INC)
 
 init: re
 
@@ -32,10 +32,10 @@ libs:
 	@$(foreach lib,$(LIBS),make all -s -C $(lib);)
 
 client:
-	@$(CC) $(CCFLAGS) client.c -o client
+	$(CC) $(CCFLAGS) client.c -o client
 
 server:
-	@$(CC) $(CCFLAGS) server.c -o server
+	$(CC) $(CCFLAGS) server.c -o server
 
 clean:
 	@$(foreach lib,$(LIBS),make clean -s -C $(lib);)
