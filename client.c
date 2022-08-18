@@ -6,12 +6,11 @@
 /*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 09:25:48 by amenadue          #+#    #+#             */
-/*   Updated: 2022/08/18 15:28:29 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/08/18 15:30:25 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 #include <signal.h>
 
 void	send_string(int pid, char *str, size_t len)
